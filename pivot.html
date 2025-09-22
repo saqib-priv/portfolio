@@ -8,48 +8,35 @@
 </head>
 <body>
   <header class="header">
-    <div class="inner">
-      <div class="brand">
-        <div class="logo">S</div>
-        <div>
-          <div class="title">Saqib!</div>
-          <div style="font-size:13px;color:var(--muted)">Automation Engineer</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="attendance.html">Attendance</a>
-        <a href="scheduler.html">Scheduler</a>
-        <a href="pivot.html">Pivot Tool</a>
-      </nav>
-    </div>
+    <div class="brand"><div class="logo">S</div><div><div class="title">Saqib</div><div class="sub">Automation Engineer</div></div></div>
+    <nav class="nav"><a href="index.html">Home</a><a href="attendance.html">Attendance</a><a href="scheduler.html">Scheduler</a><a href="pivot.html">Pivot Tool</a></nav>
   </header>
 
   <main class="container">
     <div class="page-hero">
-      <a href="index.html" style="text-decoration:none;color:var(--accent);font-weight:700">← Back to portfolio</a>
+      <a href="index.html" style="color:var(--accent);font-weight:700;text-decoration:none">← Back to portfolio</a>
       <h1 style="margin-top:10px">Data Pivot Tool</h1>
-      <p class="meta">Python helper to clean up attendance exports and create actionable reports.</p>
+      <div class="meta">Python script to normalize attendance exports into actionable reports.</div>
     </div>
 
     <section class="section">
       <h2>What it does</h2>
-      <p>Reads vendor-style attendance exports where data is stored in blocks, normalizes them into tidy rows, pivots to columns like 'Time In' & 'Time Out', and applies rules to detect mis-taps.</p>
+      <p>Scans irregular Excel export format, extracts person/date/time information, pivots to columns and detects inconsistent entries (mis-taps). Produces two-sheet output for HR review.</p>
     </section>
 
     <section class="section">
-      <h2>Example (pandas)</h2>
-      <div class="pre"><pre><code>def pivot_attendance(file_path, attendance_date):
+      <h2>Snippet</h2>
+      <div class="code"><pre><code>def pivot_attendance(file_path):
     df = pd.read_excel(file_path, header=None)
-    # find each start row where column 5 == 'Time In'
-    # build long records, pivot, detect missing values and save output
-</code></pre></div>
-      <p class="meta">Outputs two sheets: 'All Staff' and 'mis_tap' — ready for HR review.</p>
+    # find start rows where col 5 == 'Time In'
+    # build long records and pivot to wide (Time In / Time Out)
+    # apply rules to mark missing times and save to Excel</code></pre></div>
+      <p class="meta">Output: <strong>All Staff</strong> and <strong>mis_tap</strong> sheets.</p>
     </section>
 
     <section class="section">
-      <h2>Usage</h2>
-      <p>Place the Monthly Attendance file in your input folder and run the script. The script writes a pivoted Excel to the output folder and prepares a summary for email review.</p>
+      <h2>How to run</h2>
+      <p>Place Monthly Attendance .xlsx into input folder and run the script. It writes pivoted_&lt;date&gt;.xlsx into output folder and prepares email-ready summary.</p>
     </section>
 
     <footer class="footer">© 2025 Saqib</footer>
