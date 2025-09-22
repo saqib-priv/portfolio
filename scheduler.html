@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Saturday Scheduler — Saqib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to portfolio</a>
+    <div class="page-hero">
+      <h1>Saturday Work Scheduler</h1>
+      <p class="meta">Manager UI (Google Apps Script + Sheets) for planning Saturdays and auto-saving responses.</p>
+    </div>
+
+    <div class="section">
+      <h2>Overview</h2>
+      <p>Interactive UI built in Apps Script that loads employees for the manager, generates current-month Saturdays, and lets managers mark ON/OFF per employee per Saturday. Saves results to a 'Responses' sheet.</p>
+    </div>
+
+    <div class="section">
+      <h2>Key Apps Script functions</h2>
+      <div class="pre"><pre><code>// getDataForUI: returns employees + current month saturdays
+function getDataForUI(managerEmail) {
+  const { employees, department } = getEmployees(managerEmail);
+  const saturdays = getCurrentMonthSaturdays();
+  return {
+    employees,
+    saturdays: saturdays.map(d => Utilities.formatDate(d, Session.getScriptTimeZone(), 'dd-MMM-yyyy')),
+    month: saturdays.length ? Utilities.formatDate(saturdays[0], Session.getScriptTimeZone(), 'MMMM') : '',
+    department
+  };
+}
+</code></pre></div>
+      <p class="meta">saveResponses writes manager decisions back to the "Responses" sheet.</p>
+    </div>
+
+    <div class="section">
+      <h2>UX notes</h2>
+      <ul>
+        <li>Shows per-date OFF counters that color red when too many people are offline.</li>
+        <li>Manager email entry filters to their department automatically.</li>
+        <li>Works directly inside the sheet (no external hosting required).</li>
+      </ul>
+    </div>
+
+    <footer class="footer">© 2025 Saqib!</footer>
+  </div>
+</body>
+</html>
