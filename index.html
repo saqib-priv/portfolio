@@ -1,120 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saqib Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #1a73e8; /* Google blue */
-      --text: #202124;
-      --muted: #5f6368;
-      --bg: #f8f9fa;
-      --card: #fff;
-    }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      position: sticky; top:0; background:var(--card);
-      border-bottom:1px solid #e0e0e0;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:1rem 2rem; z-index:1000;
-    }
-    header a { text-decoration:none; color:var(--muted); margin-left:1.5rem; font-weight:500; }
-    header a:hover { color:var(--accent); }
-
-    .hero {
-      max-width:900px; margin:4rem auto; text-align:center;
-    }
-    .hero h1 { font-size:2.5rem; margin-bottom:0.5rem; }
-    .hero p { color:var(--muted); font-size:1.1rem; }
-
-    .projects {
-      max-width:1000px; margin:3rem auto; padding:0 1.5rem;
-    }
-    .project {
-      display:flex; gap:2rem; margin-bottom:2rem; padding:1.5rem;
-      background:var(--card); border-radius:12px;
-      box-shadow:0 1px 3px rgba(0,0,0,0.08);
-      opacity:0; transform:translateY(20px); transition:all .6s ease;
-    }
-    .project.visible { opacity:1; transform:translateY(0); }
-    .project img { width:200px; border-radius:8px; object-fit:cover; }
-    .project h3 { margin:0; font-size:1.3rem; }
-    .project p { margin:.5rem 0 1rem; color:var(--muted); }
-    .project a { color:var(--accent); font-weight:600; text-decoration:none; }
-    .project a:hover { text-decoration:underline; }
-
-    .loader {
-      width:40px; height:40px; border:4px solid #ccc;
-      border-top:4px solid var(--accent);
-      border-radius:50%; animation:spin 1s linear infinite;
-      margin:4rem auto;
-    }
-    @keyframes spin { to { transform:rotate(360deg); } }
-
-    footer {
-      text-align:center; padding:2rem; color:var(--muted); font-size:.9rem;
-    }
-  </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Saqib — Automation & HR Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <div><strong>Saqib</strong></div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Hi, I’m Saqib</h1>
-  <p>Developer & HR Specialist — building automations, apps, and tools for modern workplaces.</p>
-</section>
-
-<div class="loader" id="loader"></div>
-
-<section class="projects" id="projects" style="display:none;">
-  <div class="project">
-    <img src="https://via.placeholder.com/200" alt="Project Screenshot">
-    <div>
-      <h3>Attendance Reminder</h3>
-      <p>Automated system that detects missing time logs and sends reminders. Reduced HR manual follow-up by 80%.</p>
-      <a href="#">View Details →</a>
+  <header class="header" role="banner">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">Saqib!</div>
+          <div style="font-size:13px;color:var(--muted)">Automation Engineer · HR Tech</div>
+        </div>
+      </div>
+      <nav class="nav" role="navigation">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="scheduler.html">Scheduler</a>
+        <a href="pivot.html">Pivot Tool</a>
+        <a href="https://github.com/saqib-priv" target="_blank">GitHub</a>
+      </nav>
     </div>
-  </div>
-  <div class="project">
-    <img src="https://via.placeholder.com/200" alt="Project Screenshot">
-    <div>
-      <h3>Google Sheets Scheduler</h3>
-      <p>Custom scheduling dashboard for Saturday shifts. Managers can review and approve availability online.</p>
-      <a href="#">View Details →</a>
-    </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  © 2025 Saqib. Built with ❤️ using HTML & CSS.
-</footer>
+  <main class="container" role="main">
+    <section class="hero">
+      <h1>Automation that reduces manual HR work</h1>
+      <p>Builds and maintains attendance monitoring, scheduling, and reporting systems with Python and Google Apps Script.</p>
+    </section>
 
-<script>
-  // Simulate loading
-  setTimeout(()=>{
-    document.getElementById('loader').style.display="none";
-    document.querySelector('.projects').style.display="block";
-    document.querySelectorAll('.project').forEach((p,i)=>{
-      setTimeout(()=>p.classList.add('visible'), i*200);
-    });
-  },1500);
-</script>
+    <section class="projects" aria-label="Featured projects">
+      <!-- Attendance -->
+      <article class="project-row">
+        <div class="project-thumb">
+          <img src="assets/attendance.png" alt="Attendance dashboard screenshot" onerror="this.src='https://via.placeholder.com/720x400?text=Attendance'">
+        </div>
+        <div class="project-content">
+          <h3>Attendance Reminder</h3>
+          <p class="meta">Flags incomplete attendance records and automates email verification to employees & managers.</p>
+          <p>Transforms exported attendance files into audit-ready reports, reduces manual follow-up, supports manager approval flow.</p>
+          <div class="links" style="margin-top:12px">
+            <a class="btn" href="attendance.html">Read case study</a>
+            <a class="link-ghost" href="https://github.com/saqib-priv/attendance-alerts" target="_blank">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Scheduler -->
+      <article class="project-row">
+        <div class="project-thumb">
+          <img src="assets/scheduler.png" alt="Scheduler UI" onerror="this.src='https://via.placeholder.com/720x400?text=Scheduler'">
+        </div>
+        <div class="project-content">
+          <h3>Saturday Scheduler</h3>
+          <p class="meta">Manager-facing Google Sheets UI to mark staff ON/OFF for Saturdays with per-date risk counters.</p>
+          <p>Loads department roster by manager email, auto-generates current-month Saturdays, saves responses to a sheet.</p>
+          <div class="links" style="margin-top:12px">
+            <a class="btn" href="scheduler.html">Read case study</a>
+            <a class="link-ghost" href="https://github.com/saqib-priv/scheduler" target="_blank">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pivot tool -->
+      <article class="project-row">
+        <div class="project-thumb">
+          <img src="assets/pivot.png" alt="Pivot tool" onerror="this.src='https://via.placeholder.com/720x400?text=Pivot+Tool'">
+        </div>
+        <div class="project-content">
+          <h3>Data Pivot Tool</h3>
+          <p class="meta">Python utility to pivot raw attendance exports and output 'All Staff' and 'mis_tap' reports.</p>
+          <p>Uses pandas to normalize the weird export format, applies rules to infer missing times, writes summary Excel for HR.</p>
+          <div class="links" style="margin-top:12px">
+            <a class="btn" href="pivot.html">Read case study</a>
+            <a class="link-ghost" href="https://github.com/saqib-priv/pivot-tool" target="_blank">Source</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      © 2025 Saqib · <a href="mailto:your.email@example.com">your.email@example.com</a>
+    </footer>
+  </main>
 
 </body>
 </html>
