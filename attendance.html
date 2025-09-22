@@ -1,73 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Attendance Reminder · Saqib</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="inner">
-      <div class="brand">
-        <div class="logo">S</div>
-        <div>
-          <div class="title">Saqib!</div>
-          <div style="font-size:13px;color:var(--muted)">Automation Engineer</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="attendance.html">Attendance</a>
-        <a href="scheduler.html">Scheduler</a>
-        <a href="pivot.html">Pivot Tool</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <a href="index.html">← Back to portfolio</a>
 
-  <main class="container">
-    <div class="page-hero">
-      <a href="index.html" style="text-decoration:none;color:var(--accent);font-weight:700">← Back to portfolio</a>
-      <h1 style="margin-top:10px">Attendance Reminder</h1>
-      <p class="meta">Automates detection of incomplete attendance and sends verification emails.</p>
-    </div>
+    <header class="header" style="padding-bottom:20px; margin-bottom:30px;">
+      <h1>Attendance Reminder</h1>
+      <p>Detect missing attendance and automate reminders</p>
+    </header>
 
-    <section class="section">
-      <h2>Problem</h2>
-      <p>HR receives raw attendance exports with inconsistent formatting. Missing Time In/Out entries required manual follow-up which created delays and errors.</p>
+    <section class="project-item">
+      <h2>Overview</h2>
+      <p>This project consumes attendance exports (Excel), pivots them into usable shape, detects when “Time In” or “Time Out” is missing, and optionally sends templated emails. It helps HR reduce manual work and improve compliance.</p>
     </section>
 
-    <section class="section">
-      <h2>Solution</h2>
+    <section class="project-item">
+      <h2>How It Works</h2>
       <ol>
-        <li>Script reads latest Excel export (monthly file).</li>
-        <li>Pivots the raw block format into one-row-per-person-per-day.</li>
-        <li>Applies rules to detect missing Time In/Out and flags mis_tap rows.</li>
-        <li>Generates a summary Excel and (optionally) sends templated emails for manager approval.</li>
+        <li>Read the latest attendance file exported from the system.</li>
+        <li>Process the raw format into rows with GT ID, Name, Department, Date, Time In, Time Out.</li>
+        <li>Identify records that have missing either In or Out time.</li>
+        <li>Generate summary Excel and send reminders (if enabled).</li>
       </ol>
     </section>
 
-    <section class="section">
-      <h2>Key snippet</h2>
-      <div class="pre"><pre><code>def pivot_attendance(file_path):
-    df = pd.read_excel(file_path, header=None)
-    # find blocks, extract GT ID, Name, Date, Info rows and pivot to wide
-    # detect rows where only one of Time In / Time Out exists -> mis_tap
-    # write "All Staff" & "mis_tap" sheets to output Excel
-</code></pre></div>
-      <p class="meta">Full code: <a href="https://github.com/saqib-priv/attendance-alerts" target="_blank">github.com/saqib-priv/attendance-alerts</a></p>
+    <section class="project-item">
+      <h2>Code Snippet</h2>
+      <pre><code>
+def pivot_attendance(file_path):
+    # read raw Excel, detect blocks anchored by “Time In”
+    # map them into long structure, pivot to wide
+    # detect missing pairs and label “mis_tap”
+    pass
+      </code></pre>
     </section>
 
-    <section class="section">
-      <h2>Impact</h2>
-      <ul>
-        <li>Reduces HR manual follow-ups by a large percentage.</li>
-        <li>Produces auditable Excel summaries for records.</li>
-        <li>Supports manager approval flow before sending emails.</li>
-      </ul>
-    </section>
-
-    <footer class="footer">© 2025 Saqib</footer>
-  </main>
+    <footer>
+      © 2025 Saqib
+    </footer>
+  </div>
 </body>
 </html>
+
