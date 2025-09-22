@@ -1,0 +1,28 @@
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --text:#0f1724; --muted:#556077; --accent:#1a73e8; --radius:12px;
+  --max:1100px;
+}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--max);margin:0 auto;padding:28px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;background:linear-gradient(135deg,var(--accent),#0b5ed7);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+.nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+.hero{padding:44px 0 36px}
+.hero h1{font-size:34px;margin:0 0 6px}
+.hero p{margin:0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:22px}
+.card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(16,24,40,0.06);transition:transform .16s,box-shadow .16s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(16,24,40,0.10)}
+.card h3{margin:0 0 8px;color:var(--accent)}
+.card p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.btn{display:inline-block;padding:8px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+.footer{padding:36px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid #eef2f6;margin-top:36px}
+
+/* Project page */
+.page-hero{padding:34px 0 18px;border-bottom:1px solid #eef2f6;margin-bottom:18px}
+.back{color:var(--accent);text-decoration:none;font-weight:600;margin-bottom:6px;display:inline-block}
+.section{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.04);margin-bottom:16px}
+.pre{background:#0b1220;color:#e6eef8;padding:14px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:13px}
+.meta{color:var(--muted);font-size:13px;margin-top:8px}
+@media (max-width:720px){.header{flex-direction:column;align-items:flex-start}.nav{margin-top:10px}}
