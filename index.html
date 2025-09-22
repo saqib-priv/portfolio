@@ -1,92 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Saqib — Automation & HR Tech</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Saqib — Automation & HR Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header" role="banner">
-    <div class="inner">
-      <div class="brand">
-        <div class="logo">S</div>
-        <div>
-          <div class="title">Saqib!</div>
-          <div style="font-size:13px;color:var(--muted)">Automation Engineer · HR Tech</div>
-        </div>
+  <div class="container">
+    <header class="header">
+      <h1>Saqib</h1>
+      <p>Automation Engineer · HR Tech · Developer</p>
+    </header>
+
+    <section class="projects">
+      <div class="project-item">
+        <h2>Attendance Reminder</h2>
+        <p>A Google Apps Script & Python system to detect missing Time In/Out records and send verification emails.</p>
+        <a href="attendance.html">View details →</a>
       </div>
-      <nav class="nav" role="navigation">
-        <a href="index.html">Home</a>
-        <a href="attendance.html">Attendance</a>
-        <a href="scheduler.html">Scheduler</a>
-        <a href="pivot.html">Pivot Tool</a>
-        <a href="https://github.com/saqib-priv" target="_blank">GitHub</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container" role="main">
-    <section class="hero">
-      <h1>Automation that reduces manual HR work</h1>
-      <p>Builds and maintains attendance monitoring, scheduling, and reporting systems with Python and Google Apps Script.</p>
+      <div class="project-item">
+        <h2>Saturday Scheduler</h2>
+        <p>Interactive schedule in Google Sheets, letting managers mark ON/OFF Saturdays with auto-saving responses.</p>
+        <a href="scheduler.html">View details →</a>
+      </div>
+
+      <div class="project-item">
+        <h2>Data Pivot Tool</h2>
+        <p>Pivots raw attendance export, normalizing data for reports and highlighting “mis-tap” issues.</p>
+        <a href="pivot.html">View details →</a>
+      </div>
     </section>
 
-    <section class="projects" aria-label="Featured projects">
-      <!-- Attendance -->
-      <article class="project-row">
-        <div class="project-thumb">
-          <img src="assets/attendance.png" alt="Attendance dashboard screenshot" onerror="this.src='https://via.placeholder.com/720x400?text=Attendance'">
-        </div>
-        <div class="project-content">
-          <h3>Attendance Reminder</h3>
-          <p class="meta">Flags incomplete attendance records and automates email verification to employees & managers.</p>
-          <p>Transforms exported attendance files into audit-ready reports, reduces manual follow-up, supports manager approval flow.</p>
-          <div class="links" style="margin-top:12px">
-            <a class="btn" href="attendance.html">Read case study</a>
-            <a class="link-ghost" href="https://github.com/saqib-priv/attendance-alerts" target="_blank">Source</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Scheduler -->
-      <article class="project-row">
-        <div class="project-thumb">
-          <img src="assets/scheduler.png" alt="Scheduler UI" onerror="this.src='https://via.placeholder.com/720x400?text=Scheduler'">
-        </div>
-        <div class="project-content">
-          <h3>Saturday Scheduler</h3>
-          <p class="meta">Manager-facing Google Sheets UI to mark staff ON/OFF for Saturdays with per-date risk counters.</p>
-          <p>Loads department roster by manager email, auto-generates current-month Saturdays, saves responses to a sheet.</p>
-          <div class="links" style="margin-top:12px">
-            <a class="btn" href="scheduler.html">Read case study</a>
-            <a class="link-ghost" href="https://github.com/saqib-priv/scheduler" target="_blank">Source</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Pivot tool -->
-      <article class="project-row">
-        <div class="project-thumb">
-          <img src="assets/pivot.png" alt="Pivot tool" onerror="this.src='https://via.placeholder.com/720x400?text=Pivot+Tool'">
-        </div>
-        <div class="project-content">
-          <h3>Data Pivot Tool</h3>
-          <p class="meta">Python utility to pivot raw attendance exports and output 'All Staff' and 'mis_tap' reports.</p>
-          <p>Uses pandas to normalize the weird export format, applies rules to infer missing times, writes summary Excel for HR.</p>
-          <div class="links" style="margin-top:12px">
-            <a class="btn" href="pivot.html">Read case study</a>
-            <a class="link-ghost" href="https://github.com/saqib-priv/pivot-tool" target="_blank">Source</a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <footer class="footer">
-      © 2025 Saqib · <a href="mailto:your.email@example.com">your.email@example.com</a>
+    <footer>
+      © 2025 Saqib · <a href="mailto:youremail@example.com">youremail@example.com</a>
     </footer>
-  </main>
-
+  </div>
 </body>
 </html>
