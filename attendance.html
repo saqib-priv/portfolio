@@ -1,51 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Attendance Reminder · Saqib</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Saqib — Automation & HR Tech</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <a href="index.html">← Back to portfolio</a>
+  <header class="header" role="banner">
+    <div class="brand" style="gap:10px">
+      <div class="logo">S</div>
+      <div>
+        <div class="title">Saqib</div>
+        <div class="sub">Automation Engineer · HR Tech</div>
+      </div>
+    </div>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="scheduler.html">Scheduler</a>
+      <a href="pivot.html">Pivot Tool</a>
+      <a href="https://github.com/saqib-priv" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
 
-    <header class="header" style="padding-bottom:20px; margin-bottom:30px;">
-      <h1>Attendance Reminder</h1>
-      <p>Detect missing attendance and automate reminders</p>
-    </header>
-
-    <section class="project-item">
-      <h2>Overview</h2>
-      <p>This project consumes attendance exports (Excel), pivots them into usable shape, detects when “Time In” or “Time Out” is missing, and optionally sends templated emails. It helps HR reduce manual work and improve compliance.</p>
+  <main class="container" role="main">
+    <section class="hero">
+      <h1>Automation that reduces HR work</h1>
+      <p>Practical automations for attendance, scheduling and reporting. Python & Google Apps Script solutions used in production.</p>
     </section>
 
-    <section class="project-item">
-      <h2>How It Works</h2>
-      <ol>
-        <li>Read the latest attendance file exported from the system.</li>
-        <li>Process the raw format into rows with GT ID, Name, Department, Date, Time In, Time Out.</li>
-        <li>Identify records that have missing either In or Out time.</li>
-        <li>Generate summary Excel and send reminders (if enabled).</li>
-      </ol>
+    <section class="projects" aria-label="Featured projects">
+      <article class="project-row">
+        <div class="thumb">
+          <img src="assets/attendance.png" alt="Attendance" onerror="this.src='https://via.placeholder.com/720x400?text=Attendance'">
+        </div>
+        <div class="project-content">
+          <h3>Attendance Reminder</h3>
+          <div class="meta">Flags incomplete logs & prepares verifiable summaries</div>
+          <p>Processes vendor-style monthly exports, detects missing Time In/Out, creates an auditable Excel and supports manager approval before emailing staff.</p>
+          <div class="links">
+            <a class="btn" href="attendance.html">Read case study</a>
+            <a class="btn-ghost" href="https://github.com/saqib-priv/attendance-alerts" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-row">
+        <div class="thumb">
+          <img src="assets/scheduler.png" alt="Scheduler" onerror="this.src='https://via.placeholder.com/720x400?text=Scheduler'">
+        </div>
+        <div class="project-content">
+          <h3>Saturday Scheduler</h3>
+          <div class="meta">Manager UI inside Google Sheets</div>
+          <p>Manager enters email, UI loads department roster and lets them mark ON/OFF for current-month Saturdays. Saves responses and shows per-date risk counters.</p>
+          <div class="links">
+            <a class="btn" href="scheduler.html">Read case study</a>
+            <a class="btn-ghost" href="https://github.com/saqib-priv/scheduler" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-row">
+        <div class="thumb">
+          <img src="assets/pivot.png" alt="Pivot tool" onerror="this.src='https://via.placeholder.com/720x400?text=Pivot+Tool'">
+        </div>
+        <div class="project-content">
+          <h3>Data Pivot Tool</h3>
+          <div class="meta">Normalize weird Excel exports to usable reports</div>
+          <p>Pivots raw block-format export into one-row-per-person-per-day, applies rules to detect mis-taps, and writes 'All Staff' and 'mis_tap' sheets for HR.</p>
+          <div class="links">
+            <a class="btn" href="pivot.html">Read case study</a>
+            <a class="btn-ghost" href="https://github.com/saqib-priv/pivot-tool" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section class="project-item">
-      <h2>Code Snippet</h2>
-      <pre><code>
-def pivot_attendance(file_path):
-    # read raw Excel, detect blocks anchored by “Time In”
-    # map them into long structure, pivot to wide
-    # detect missing pairs and label “mis_tap”
-    pass
-      </code></pre>
-    </section>
-
-    <footer>
-      © 2025 Saqib
+    <footer class="footer">
+      © 2025 Saqib · <a href="mailto:your.email@example.com">your.email@example.com</a>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
-
