@@ -1,58 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Attendance Reminder | Saqib!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Attendance Reminder — Saqib</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="page-header">
-    <a href="index.html" class="back-link">← Back</a>
-    <h1>Attendance Reminder</h1>
-    <p class="subtitle">Automated alerts for incomplete attendance</p>
-  </header>
+  <div class="container">
+    <a class="back" href="index.html">← Back to portfolio</a>
+    <div class="page-hero">
+      <h1>Attendance Reminder</h1>
+      <p class="meta">Automated detection + email verification for incomplete attendance records.</p>
+    </div>
 
-  <main class="content">
-    <section class="card">
-      <h2>📌 Overview</h2>
-      <p>
-        This tool checks staff attendance in real-time and sends automated reminders
-        when employees forget to mark their presence. Built with <b>Google Apps Script</b>,
-        it integrates directly with <b>Google Sheets</b> and <b>Gmail</b>.
-      </p>
-    </section>
+    <div class="section">
+      <h2>Overview</h2>
+      <p>Processes monthly attendance exports, pivots the raw layout into a table, detects rows with missing Time-In or Time-Out and sends templated emails for verification. Designed for HR ops — simple to run and auditable.</p>
+    </div>
 
-    <section class="card">
-      <h2>⚙️ How It Works</h2>
+    <div class="section">
+      <h2>How it works</h2>
       <ol>
-        <li>Manager updates staff list in Google Sheets.</li>
-        <li>Script runs daily at set time.</li>
-        <li>If attendance is missing → Email alert is sent automatically.</li>
+        <li>Script reads the latest attendance Excel export.</li>
+        <li>Transforms the data into clean rows (GT ID, Name, Department, Time In, Time Out).</li>
+        <li>Flags incomplete records and creates a summary Excel.</li>
+        <li>Sends templated emails to employees & CC managers (after manager approval).</li>
       </ol>
-    </section>
+    </div>
 
-    <section class="card">
-      <h2>💻 Code Example</h2>
-      <pre><code>
-// Google Apps Script
-function sendAttendanceReminder() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Attendance");
-  const data = sheet.getDataRange().getValues();
-  data.forEach((row, i) => {
-    if (i === 0) return; // skip header
-    if (!row[2]) { // if attendance is empty
-      MailApp.sendEmail(row[1], "Attendance Missing", "Please mark your attendance today.");
-    }
-  });
-}
-      </code></pre>
-    </section>
-  </main>
+    <div class="section">
+      <h2>Key snippet (Python)</h2>
+      <div class="pre">
+<pre><code># pivot_attendance: simplified
+from datetime import datetime
+import pandas as pd
 
-  <footer class="footer">
-    <p>© 2025 Saqib! | Built with ❤️ on GitHub Pages</p>
-  </footer>
+def pivot_attendance(file_path):
+    df = pd.read_excel(file_path, header=None)
+    # locate blocks where column 5 == "Time In" and extract meta + times
+    # ... transform to long then pivot to wide with 'Time In'/'Time Out' columns
+    # then detect missing pairs and mark for email
+</code></pre>
+      </div>
+      <p class="meta">Full code is in the repo (link to your script). Replace file paths with environment-safe config.</p>
+    </div>
+
+    <div class="section">
+      <h2>Business impact</h2>
+      <ul>
+        <li>Reduces manual follow-ups by ~80% (example).</li>
+        <li>Creates an auditable Excel summary for HR.</li>
+        <li>Supports manager approval before sending.</li>
+      </ul>
+    </div>
+
+    <footer class="footer">© 2025 Saqib!</footer>
+  </div>
 </body>
 </html>
