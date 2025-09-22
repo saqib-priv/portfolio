@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance Reminder | Saqib!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="page-header">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1>Attendance Reminder</h1>
+    <p class="subtitle">Automated alerts for incomplete attendance</p>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>📌 Overview</h2>
+      <p>
+        This tool checks staff attendance in real-time and sends automated reminders
+        when employees forget to mark their presence. Built with <b>Google Apps Script</b>,
+        it integrates directly with <b>Google Sheets</b> and <b>Gmail</b>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>⚙️ How It Works</h2>
+      <ol>
+        <li>Manager updates staff list in Google Sheets.</li>
+        <li>Script runs daily at set time.</li>
+        <li>If attendance is missing → Email alert is sent automatically.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>💻 Code Example</h2>
+      <pre><code>
+// Google Apps Script
+function sendAttendanceReminder() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Attendance");
+  const data = sheet.getDataRange().getValues();
+  data.forEach((row, i) => {
+    if (i === 0) return; // skip header
+    if (!row[2]) { // if attendance is empty
+      MailApp.sendEmail(row[1], "Attendance Missing", "Please mark your attendance today.");
+    }
+  });
+}
+      </code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Saqib! | Built with ❤️ on GitHub Pages</p>
+  </footer>
+</body>
+</html>
