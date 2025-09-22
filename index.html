@@ -1,61 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Saqib! | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Saqib — Automation & HR Tech Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f172a;
-      --text: #e2e8f0;
-      --accent: #38bdf8;
-      --card-bg: #1e293b;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; }
-    header { text-align: center; padding: 4rem 1rem; }
-    header h1 { font-size: 2.5rem; font-weight: 700; }
-    header p { margin-top: 0.5rem; font-size: 1.2rem; color: #94a3b8; }
-    .projects { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-    .card h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .card p { color: #cbd5e1; margin-bottom: 1rem; }
-    .card a { text-decoration: none; color: var(--text); font-weight: 600; border: 1px solid var(--accent); padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.2s; }
-    .card a:hover { background: var(--accent); color: #0f172a; }
-    footer { text-align: center; padding: 2rem 1rem; color: #64748b; font-size: 0.9rem; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>👋 Hi, I’m Saqib!</h1>
-    <p>Developer • HR Tech Automation • Python & Apps Script</p>
-  </header>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div style="font-weight:700">Saqib!</div>
+          <div style="font-size:13px;color:var(--muted)">Automation Engineer • HR Tech</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="scheduler.html">Scheduler</a>
+        <a href="pivot.html">Pivot Tool</a>
+        <a href="https://github.com/saqib-priv" target="_blank">GitHub</a>
+      </nav>
+    </header>
 
-  <section class="projects">
-    <div class="card">
-      <h2>Attendance Reminder</h2>
-      <p>Automates attendance tracking and sends alerts for incomplete records via email.</p>
-      <a href="#">View Project</a>
-    </div>
+    <section class="hero">
+      <h1>Automation for HR — reliable, auditable, useful</h1>
+      <p>Python & Google Apps Script solutions that reduce manual work: attendance alerts, scheduler dashboards, and reporting tools.</p>
+    </section>
 
-    <div class="card">
-      <h2>Saturday Scheduler</h2>
-      <p>Google Sheets solution to schedule staff and auto-refresh KPIs.</p>
-      <a href="#">View Project</a>
-    </div>
+    <section>
+      <h2 style="color:var(--muted);margin-bottom:8px">Featured projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Attendance Reminder</h3>
+          <p>Detects missing Time-In / Time-Out and sends verification emails to staff & managers.</p>
+          <a class="btn" href="attendance.html">View Project</a>
+        </article>
 
-    <div class="card">
-      <h2>Data Pivot Tool</h2>
-      <p>Python + Pandas script for automated pivoting and reporting of attendance logs.</p>
-      <a href="#">View Project</a>
-    </div>
-  </section>
+        <article class="card">
+          <h3>Saturday Scheduler</h3>
+          <p>Manager-facing scheduler UI in Google Sheets + Apps Script. Auto-saving responses to a sheet.</p>
+          <a class="btn" href="scheduler.html">View Project</a>
+        </article>
 
-  <footer>
-    <p>© 2025 Saqib! | Built with ❤️ and deployed on GitHub Pages</p>
-  </footer>
+        <article class="card">
+          <h3>Data Pivot Tool</h3>
+          <p>Python script that pivots raw attendance exports into actionable rows and generates reports.</p>
+          <a class="btn" href="pivot.html">View Project</a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2025 Saqib! • <a href="mailto:your.email@example.com">your.email@example.com</a>
+    </footer>
+  </div>
 </body>
 </html>
-
