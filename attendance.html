@@ -1,61 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Attendance Reminder — Saqib</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Reminder · Saqib Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1a73e8;
+      --text: #202124;
+      --muted: #5f6368;
+      --bg: #f8f9fa;
+      --card: #fff;
+    }
+    body { margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+    header { position:sticky;top:0;background:var(--card);border-bottom:1px solid #e0e0e0;
+      display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;z-index:1000; }
+    header a { text-decoration:none;color:var(--muted);margin-left:1.5rem;font-weight:500; }
+    header a:hover { color:var(--accent); }
+
+    .hero { max-width:900px;margin:4rem auto 2rem;text-align:center; }
+    .hero h1 { font-size:2rem;margin-bottom:.5rem; }
+    .hero p { color:var(--muted); }
+
+    .content { max-width:900px;margin:2rem auto;padding:0 1.5rem; }
+    .card { background:var(--card);padding:1.5rem;border-radius:12px;
+      box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-bottom:2rem; }
+    .card h2 { margin-top:0; }
+    .btn { display:inline-block;padding:.6rem 1.2rem;border-radius:6px;
+      background:var(--accent);color:white;text-decoration:none;font-weight:600; }
+    .btn:hover { background:#1558b0; }
+
+    .loader {
+      width:40px;height:40px;border:4px solid #ccc;
+      border-top:4px solid var(--accent);border-radius:50%;
+      animation:spin 1s linear infinite;margin:3rem auto; }
+    @keyframes spin { to{ transform:rotate(360deg);} }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html">← Back to portfolio</a>
-    <div class="page-hero">
-      <h1>Attendance Reminder</h1>
-      <p class="meta">Automated detection + email verification for incomplete attendance records.</p>
-    </div>
 
-    <div class="section">
-      <h2>Overview</h2>
-      <p>Processes monthly attendance exports, pivots the raw layout into a table, detects rows with missing Time-In or Time-Out and sends templated emails for verification. Designed for HR ops — simple to run and auditable.</p>
-    </div>
+<header>
+  <div><strong>Saqib</strong></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="scheduler.html">Scheduler</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <div class="section">
-      <h2>How it works</h2>
-      <ol>
-        <li>Script reads the latest attendance Excel export.</li>
-        <li>Transforms the data into clean rows (GT ID, Name, Department, Time In, Time Out).</li>
-        <li>Flags incomplete records and creates a summary Excel.</li>
-        <li>Sends templated emails to employees & CC managers (after manager approval).</li>
-      </ol>
-    </div>
+<section class="hero">
+  <h1>Attendance Reminder</h1>
+  <p>Google Apps Script + Gmail automation to remind staff about missing time logs.</p>
+</section>
 
-    <div class="section">
-      <h2>Key snippet (Python)</h2>
-      <div class="pre">
-<pre><code># pivot_attendance: simplified
-from datetime import datetime
-import pandas as pd
+<div class="loader" id="loader"></div>
 
-def pivot_attendance(file_path):
-    df = pd.read_excel(file_path, header=None)
-    # locate blocks where column 5 == "Time In" and extract meta + times
-    # ... transform to long then pivot to wide with 'Time In'/'Time Out' columns
-    # then detect missing pairs and mark for email
-</code></pre>
-      </div>
-      <p class="meta">Full code is in the repo (link to your script). Replace file paths with environment-safe config.</p>
-    </div>
-
-    <div class="section">
-      <h2>Business impact</h2>
-      <ul>
-        <li>Reduces manual follow-ups by ~80% (example).</li>
-        <li>Creates an auditable Excel summary for HR.</li>
-        <li>Supports manager approval before sending.</li>
-      </ul>
-    </div>
-
-    <footer class="footer">© 2025 Saqib!</footer>
+<div class="content" id="main" style="display:none;">
+  <div class="card">
+    <h2>Overview</h2>
+    <p>This project automatically checks employee time logs in a Google Sheet. If a log is missing, the system sends a polite reminder email via Gmail.</p>
   </div>
+
+  <div class="card">
+    <h2>How It Works</h2>
+    <ol>
+      <li>Google Sheet stores daily attendance logs.</li>
+      <li>A Google Apps Script scans the sheet every evening.</li>
+      <li>Missing entries trigger an automated Gmail reminder.</li>
+      <li>HR dashboard updates with compliance rates.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Demo / Preview</h2>
+    <img src="https://via.placeholder.com/800x400" alt="Attendance Dashboard" style="width:100%;border-radius:8px;">
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <a href="https://github.com/saqib-priv/attendance-reminder" target="_blank" class="btn">View on GitHub</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;">
+  © 2025 Saqib · Attendance Reminder
+</footer>
+
+<script>
+  // Fake loading
+  setTimeout(()=>{
+    document.getElementById('loader').style.display="none";
+    document.getElementById('main').style.display="block";
+  },1200);
+</script>
+
 </body>
 </html>
