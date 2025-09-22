@@ -1,99 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Attendance Reminder · Saqib Portfolio</title>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Attendance Reminder · Saqib</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #1a73e8;
-      --text: #202124;
-      --muted: #5f6368;
-      --bg: #f8f9fa;
-      --card: #fff;
-    }
-    body { margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
-    header { position:sticky;top:0;background:var(--card);border-bottom:1px solid #e0e0e0;
-      display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;z-index:1000; }
-    header a { text-decoration:none;color:var(--muted);margin-left:1.5rem;font-weight:500; }
-    header a:hover { color:var(--accent); }
-
-    .hero { max-width:900px;margin:4rem auto 2rem;text-align:center; }
-    .hero h1 { font-size:2rem;margin-bottom:.5rem; }
-    .hero p { color:var(--muted); }
-
-    .content { max-width:900px;margin:2rem auto;padding:0 1.5rem; }
-    .card { background:var(--card);padding:1.5rem;border-radius:12px;
-      box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-bottom:2rem; }
-    .card h2 { margin-top:0; }
-    .btn { display:inline-block;padding:.6rem 1.2rem;border-radius:6px;
-      background:var(--accent);color:white;text-decoration:none;font-weight:600; }
-    .btn:hover { background:#1558b0; }
-
-    .loader {
-      width:40px;height:40px;border:4px solid #ccc;
-      border-top:4px solid var(--accent);border-radius:50%;
-      animation:spin 1s linear infinite;margin:3rem auto; }
-    @keyframes spin { to{ transform:rotate(360deg);} }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="header">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">Saqib!</div>
+          <div style="font-size:13px;color:var(--muted)">Automation Engineer</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="scheduler.html">Scheduler</a>
+        <a href="pivot.html">Pivot Tool</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div><strong>Saqib</strong></div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="attendance.html">Attendance</a>
-    <a href="scheduler.html">Scheduler</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <main class="container">
+    <div class="page-hero">
+      <a href="index.html" style="text-decoration:none;color:var(--accent);font-weight:700">← Back to portfolio</a>
+      <h1 style="margin-top:10px">Attendance Reminder</h1>
+      <p class="meta">Automates detection of incomplete attendance and sends verification emails.</p>
+    </div>
 
-<section class="hero">
-  <h1>Attendance Reminder</h1>
-  <p>Google Apps Script + Gmail automation to remind staff about missing time logs.</p>
-</section>
+    <section class="section">
+      <h2>Problem</h2>
+      <p>HR receives raw attendance exports with inconsistent formatting. Missing Time In/Out entries required manual follow-up which created delays and errors.</p>
+    </section>
 
-<div class="loader" id="loader"></div>
+    <section class="section">
+      <h2>Solution</h2>
+      <ol>
+        <li>Script reads latest Excel export (monthly file).</li>
+        <li>Pivots the raw block format into one-row-per-person-per-day.</li>
+        <li>Applies rules to detect missing Time In/Out and flags mis_tap rows.</li>
+        <li>Generates a summary Excel and (optionally) sends templated emails for manager approval.</li>
+      </ol>
+    </section>
 
-<div class="content" id="main" style="display:none;">
-  <div class="card">
-    <h2>Overview</h2>
-    <p>This project automatically checks employee time logs in a Google Sheet. If a log is missing, the system sends a polite reminder email via Gmail.</p>
-  </div>
+    <section class="section">
+      <h2>Key snippet</h2>
+      <div class="pre"><pre><code>def pivot_attendance(file_path):
+    df = pd.read_excel(file_path, header=None)
+    # find blocks, extract GT ID, Name, Date, Info rows and pivot to wide
+    # detect rows where only one of Time In / Time Out exists -> mis_tap
+    # write "All Staff" & "mis_tap" sheets to output Excel
+</code></pre></div>
+      <p class="meta">Full code: <a href="https://github.com/saqib-priv/attendance-alerts" target="_blank">github.com/saqib-priv/attendance-alerts</a></p>
+    </section>
 
-  <div class="card">
-    <h2>How It Works</h2>
-    <ol>
-      <li>Google Sheet stores daily attendance logs.</li>
-      <li>A Google Apps Script scans the sheet every evening.</li>
-      <li>Missing entries trigger an automated Gmail reminder.</li>
-      <li>HR dashboard updates with compliance rates.</li>
-    </ol>
-  </div>
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Reduces HR manual follow-ups by a large percentage.</li>
+        <li>Produces auditable Excel summaries for records.</li>
+        <li>Supports manager approval flow before sending emails.</li>
+      </ul>
+    </section>
 
-  <div class="card">
-    <h2>Demo / Preview</h2>
-    <img src="https://via.placeholder.com/800x400" alt="Attendance Dashboard" style="width:100%;border-radius:8px;">
-  </div>
-
-  <div class="card" style="text-align:center;">
-    <a href="https://github.com/saqib-priv/attendance-reminder" target="_blank" class="btn">View on GitHub</a>
-  </div>
-</div>
-
-<footer style="text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;">
-  © 2025 Saqib · Attendance Reminder
-</footer>
-
-<script>
-  // Fake loading
-  setTimeout(()=>{
-    document.getElementById('loader').style.display="none";
-    document.getElementById('main').style.display="block";
-  },1200);
-</script>
-
+    <footer class="footer">© 2025 Saqib</footer>
+  </main>
 </body>
 </html>
