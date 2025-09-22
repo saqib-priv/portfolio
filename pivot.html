@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Data Pivot Tool — Saqib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to portfolio</a>
+    <div class="page-hero">
+      <h1>Data Pivot Tool</h1>
+      <p class="meta">Python utility that transforms exported attendance into usable reports.</p>
+    </div>
+
+    <div class="section">
+      <h2>What it does</h2>
+      <p>Pivots raw exported rows into a “one-row-per-person-per-day” structure, fills missing values according to rules, and writes an Excel with sheets "All Staff" and "mis_tap" for follow-up.</p>
+    </div>
+
+    <div class="section">
+      <h2>Snippet</h2>
+      <div class="pre"><pre><code>def pivot_attendance(file_path):
+    df = pd.read_excel(file_path, header=None)
+    # scan for rows where col 5 == 'Time In' and build long records
+    # pivot to wide, then detect entries where either Time In or Time Out is missing
+    # save results to Excel with openpyxl
+</code></pre></div>
+    </div>
+
+    <footer class="footer">© 2025 Saqib!</footer>
+  </div>
+</body>
+</html>
