@@ -2,27 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Saturday Scheduler — Saqib</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Saturday Scheduler · Saqib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html">← Back to portfolio</a>
+  <header class="header">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">Saqib!</div>
+          <div style="font-size:13px;color:var(--muted)">Automation Engineer</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="scheduler.html">Scheduler</a>
+        <a href="pivot.html">Pivot Tool</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
     <div class="page-hero">
-      <h1>Saturday Work Scheduler</h1>
-      <p class="meta">Manager UI (Google Apps Script + Sheets) for planning Saturdays and auto-saving responses.</p>
+      <a href="index.html" style="text-decoration:none;color:var(--accent);font-weight:700">← Back to portfolio</a>
+      <h1 style="margin-top:10px">Saturday Scheduler</h1>
+      <p class="meta">Manager-facing scheduler built with Google Apps Script and a lightweight UI.</p>
     </div>
 
-    <div class="section">
+    <section class="section">
       <h2>Overview</h2>
-      <p>Interactive UI built in Apps Script that loads employees for the manager, generates current-month Saturdays, and lets managers mark ON/OFF per employee per Saturday. Saves results to a 'Responses' sheet.</p>
-    </div>
+      <p>Managers enter their email to load department roster, mark staff ON/OFF for each Saturday, and save responses to a 'Responses' sheet. The UI shows per-date OFF counters with thresholds that highlight potential understaffing.</p>
+    </section>
 
-    <div class="section">
-      <h2>Key Apps Script functions</h2>
-      <div class="pre"><pre><code>// getDataForUI: returns employees + current month saturdays
-function getDataForUI(managerEmail) {
+    <section class="section">
+      <h2>Important functions (Apps Script)</h2>
+      <div class="pre"><pre><code>function getDataForUI(managerEmail) {
   const { employees, department } = getEmployees(managerEmail);
   const saturdays = getCurrentMonthSaturdays();
   return {
@@ -33,19 +50,19 @@ function getDataForUI(managerEmail) {
   };
 }
 </code></pre></div>
-      <p class="meta">saveResponses writes manager decisions back to the "Responses" sheet.</p>
-    </div>
+      <p class="meta">saveResponses(managerEmail, responses) appends manager choices to the Responses sheet.</p>
+    </section>
 
-    <div class="section">
+    <section class="section">
       <h2>UX notes</h2>
       <ul>
-        <li>Shows per-date OFF counters that color red when too many people are offline.</li>
-        <li>Manager email entry filters to their department automatically.</li>
-        <li>Works directly inside the sheet (no external hosting required).</li>
+        <li>Simple, responsive UI designed to be embedded in Google Sheets sidebar or deployed as Web App.</li>
+        <li>Threshold rules color OFF counts red to prompt reassignments.</li>
+        <li>Works offline in the sheet; data saved to the spreadsheet for reporting.</li>
       </ul>
-    </div>
+    </section>
 
-    <footer class="footer">© 2025 Saqib!</footer>
-  </div>
+    <footer class="footer">© 2025 Saqib</footer>
+  </main>
 </body>
 </html>
