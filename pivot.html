@@ -2,34 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Data Pivot Tool — Saqib</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Data Pivot Tool · Saqib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="index.html">← Back to portfolio</a>
+  <header class="header">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="title">Saqib!</div>
+          <div style="font-size:13px;color:var(--muted)">Automation Engineer</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="scheduler.html">Scheduler</a>
+        <a href="pivot.html">Pivot Tool</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
     <div class="page-hero">
-      <h1>Data Pivot Tool</h1>
-      <p class="meta">Python utility that transforms exported attendance into usable reports.</p>
+      <a href="index.html" style="text-decoration:none;color:var(--accent);font-weight:700">← Back to portfolio</a>
+      <h1 style="margin-top:10px">Data Pivot Tool</h1>
+      <p class="meta">Python helper to clean up attendance exports and create actionable reports.</p>
     </div>
 
-    <div class="section">
+    <section class="section">
       <h2>What it does</h2>
-      <p>Pivots raw exported rows into a “one-row-per-person-per-day” structure, fills missing values according to rules, and writes an Excel with sheets "All Staff" and "mis_tap" for follow-up.</p>
-    </div>
+      <p>Reads vendor-style attendance exports where data is stored in blocks, normalizes them into tidy rows, pivots to columns like 'Time In' & 'Time Out', and applies rules to detect mis-taps.</p>
+    </section>
 
-    <div class="section">
-      <h2>Snippet</h2>
-      <div class="pre"><pre><code>def pivot_attendance(file_path):
+    <section class="section">
+      <h2>Example (pandas)</h2>
+      <div class="pre"><pre><code>def pivot_attendance(file_path, attendance_date):
     df = pd.read_excel(file_path, header=None)
-    # scan for rows where col 5 == 'Time In' and build long records
-    # pivot to wide, then detect entries where either Time In or Time Out is missing
-    # save results to Excel with openpyxl
+    # find each start row where column 5 == 'Time In'
+    # build long records, pivot, detect missing values and save output
 </code></pre></div>
-    </div>
+      <p class="meta">Outputs two sheets: 'All Staff' and 'mis_tap' — ready for HR review.</p>
+    </section>
 
-    <footer class="footer">© 2025 Saqib!</footer>
-  </div>
+    <section class="section">
+      <h2>Usage</h2>
+      <p>Place the Monthly Attendance file in your input folder and run the script. The script writes a pivoted Excel to the output folder and prepares a summary for email review.</p>
+    </section>
+
+    <footer class="footer">© 2025 Saqib</footer>
+  </main>
 </body>
 </html>
