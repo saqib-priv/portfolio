@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["Google Apps Script", "Looker Studio", "Spreadsheets"],
             problem: "Manual data collection and reporting were time-consuming and prone to errors.",
             impact: "Reduced reporting time by 80% and provided real-time insights for strategic decision-making.",
-            link: "#",
+            link: "#", // Placeholder link
             image: "https://via.placeholder.com/600x300/007acc/FFFFFF?text=Dashboard+Mockup" // Placeholder image
         },
         {
@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["HTML", "JavaScript", "CSS", "Google Apps Script"],
             problem: "Saturday staffing relied on siloed spreadsheets and manual coordination, creating systemic inefficiencies and frequent errors.",
             impact: "Reduced manual scheduling effort by over 90%, eliminated data discrepancies, and enhanced compliance accountability.",
-            link: "https://script.google.com/macros/s/AKfycbyK7ttqd8UZpvkgn5xuhVXy21w1i70nvALxzIaG-ic6t_EfeP0G-vVYdLsSOGDxpZn2/exec", 
+            // **THIS IS YOUR LIVE WEB APP URL:**
+            link: "https://script.google.com/macros/s/AKfycbx4YzkO4qOjWGyST8oKFZ1XQ6dH9hNVkqt1N_bltLSM/dev", 
             image: "https://via.placeholder.com/600x300/1a4d7d/FFFFFF?text=Automation+Screenshot" // Placeholder image
         },
         {
@@ -108,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["Python", "Pandas", "Data Pivoting", "Automation"],
             problem: "Manual auditing caused protracted HR disputes and high administrative overhead due to delayed, reactive reconciliation of attendance failures (including single-tap exit strategies).",
             impact: "Achieved 95%+ reduction in manual auditing. Minimized payroll risk and enhanced data integrity by establishing a verified, daily audit trail, making it the cornerstone of compliance and efficiency.",
+            // This links to an image on GitHub which is acceptable for a code project with no live demo.
             link: "https://github.com/saqib-priv/portfolio-assets/blob/main/Gemini_Generated_Image_m4x3xkm4x3xkm4x3.png?raw=true",
             image: "https://github.com/saqib-priv/portfolio-assets/blob/main/Gemini_Generated_Image_m4x3xkm4x3xkm4x3.png?raw=true"
         },
@@ -151,7 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("modalProblem").textContent = project.problem;
                 document.getElementById("modalSolution").textContent = project.solution;
                 document.getElementById("modalImpact").textContent = project.impact;
+                
                 document.getElementById("modalLink").href = project.link || '#';
+                // **THIS IS THE CRITICAL FIX: Forces link to open in a new tab**
+                document.getElementById("modalLink").setAttribute('target', '_blank'); 
+                
                 const modal = document.getElementById("projectModal");
                 modal.style.display = "block";
                 modal.setAttribute('aria-hidden', 'false');
