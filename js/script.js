@@ -156,6 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("modalLink").target = '_blank'; 
                 document.getElementById("modalLink").href = project.link || '#';
                 
+                // Ensure modalLink click navigates correctly
+                document.getElementById("modalLink").addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent event bubbling to modal/window listeners
+                    const url = e.currentTarget.href;
+                    if (url && url !== '#') {
+                        window.open(url, '_blank'); // Force navigation in a new tab
+                    }
+                });
+                
                 const modal = document.getElementById("projectModal");
                 modal.style.display = "block";
                 modal.setAttribute('aria-hidden', 'false');
