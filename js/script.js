@@ -90,8 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["Zapier", "Workflow Automation", "Spreadsheets"],
             problem: "Critical time-in/out log data was being submitted via email, requiring slow, error-prone manual transfer by an HR representative.",
             impact: "Eliminated manual data entry entirely, ensuring real-time logging with 100% accuracy. This provided instant, reliable data for reporting, saving HR personnel approximately 4 hours per week.",
-            link: "https://github.com/saqib-priv/portfolio-assets/blob/main/zapier.png?raw=true, // Placeholder link - Update this with your live dashboard URL
-            image: ""
+            // 🚨 FIX: Removed the extra comma from the URL string 🚨
+            link: "https://github.com/saqib-priv/portfolio-assets/blob/main/zapier.png?raw=true", // Link to a demonstration image/page
+            image: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg" // Changed to Zapier SVG for a professional look
         },
         {
             title: "Work Schedule Automation",
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problem: "Saturday staffing relied on siloed spreadsheets and manual coordination, creating systemic inefficiencies and frequent errors.",
             impact: "Reduced manual scheduling effort by over 90%, eliminated data discrepancies, and enhanced compliance accountability.",
             link: "https://script.google.com/macros/s/AKfycbx4YzkO4qOjWGyST8oKFZ1XQ6dH9hNVkqt1N_bltLSM/dev", // Your Live Web App URL
-            image: ""
+            image: "https://via.placeholder.com/600x300/1a4d7d/FFFFFF?text=Automation+Screenshot"
         },
         {
             title: "Full-Cycle Attendance Audit Engine (Python)",
@@ -152,19 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("modalSolution").textContent = project.solution;
                 document.getElementById("modalImpact").textContent = project.impact;
                 
-                // 🚨 FINAL FIX: Setting 'target' and 'href' properties directly 
+                // 🚨 LINK FIX: Setting 'target' and 'href' properties directly 
                 document.getElementById("modalLink").target = '_blank'; 
                 document.getElementById("modalLink").href = project.link || '#';
                 
-                // Ensure modalLink click navigates correctly
-                document.getElementById("modalLink").addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent event bubbling to modal/window listeners
+                // 🚨 LINK FIX: Explicit Event Listener to force navigation 🚨
+                const modalLinkElement = document.getElementById("modalLink");
+                // Remove previous listeners to prevent multiple opens
+                const newModalLinkElement = modalLinkElement.cloneNode(true);
+                modalLinkElement.parentNode.replaceChild(newModalLinkElement, modalLinkElement);
+
+                newModalLinkElement.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent event bubbling
                     const url = e.currentTarget.href;
                     if (url && url !== '#') {
-                        window.open(url, '_blank'); // Force navigation in a new tab
+                        window.open(url, '_blank'); // Force navigation
                     }
                 });
-                
+                // Re-assign the new element to the variable
+                document.getElementById("modalLink").href = project.link || '#';
+                document.getElementById("modalLink").target = '_blank';
+
+
                 const modal = document.getElementById("projectModal");
                 modal.style.display = "block";
                 modal.setAttribute('aria-hidden', 'false');
