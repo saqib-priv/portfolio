@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["Google Apps Script", "Looker Studio", "Spreadsheets"],
             problem: "Manual data collection and reporting were time-consuming and prone to errors.",
             impact: "Reduced reporting time by 80% and provided real-time insights for strategic decision-making.",
-            link: "#", // Placeholder link - Update this with your live dashboard URL
-            image: "https://via.placeholder.com/600x300/007acc/FFFFFF?text=Dashboard+Mockup"
+            link: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true", // Placeholder link - Update this with your live dashboard URL
+            image: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true"
         },
         {
             title: "Work Schedule Automation",
