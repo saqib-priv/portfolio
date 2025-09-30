@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["HTML", "JavaScript", "CSS", "Google Apps Script"],
             problem: "Saturday staffing relied on siloed spreadsheets and manual coordination, creating systemic inefficiencies and frequent errors.",
             impact: "Reduced manual scheduling effort by over 90%, eliminated data discrepancies, and enhanced compliance accountability.",
-            link: "https://script.google.com/macros/s/AKfycbx4YzkO4qOjWGyST8oKFZ1XQ6dH9hNVkqt1N_bltLSM/dev", 
+            link: "https://script.google.com/macros/s/AKfycbyK7ttqd8UZpvkgn5xuhVXy21w1i70nvALxzIaG-ic6t_EfeP0G-vVYdLsSOGDxpZn2/exec", 
             image: "https://via.placeholder.com/600x300/1a4d7d/FFFFFF?text=Automation+Screenshot" // Placeholder image
         },
         {
