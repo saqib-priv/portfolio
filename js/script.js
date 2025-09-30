@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ["Zapier", "Workflow Automation", "Spreadsheets"],
             problem: "Critical time-in/out log data was being submitted via email, requiring slow, error-prone manual transfer by an HR representative.",
             impact: "Eliminated manual data entry entirely, ensuring real-time logging with 100% accuracy. This provided instant, reliable data for reporting, saving HR personnel approximately 4 hours per week.",
-            link: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true", // Placeholder link - Update this with your live dashboard URL
-            image: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true"
+            link: "https://github.com/saqib-priv/portfolio-assets/blob/main/zapier.png?raw=true, // Placeholder link - Update this with your live dashboard URL
+            image: "https://github.com/saqib-priv/portfolio-assets/blob/main/zapier.png?raw=true"
         },
         {
             title: "Work Schedule Automation",
