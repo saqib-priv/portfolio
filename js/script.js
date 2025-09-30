@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // G. Project Data (Local Data)
     const projectsData = [
         {
-            title: "HR Data Dashboard",
-            solution: "Developed an automated HR analytics dashboard to track key metrics and performance indicators.",
-            tech: ["Google Apps Script", "Looker Studio", "Spreadsheets"],
-            problem: "Manual data collection and reporting were time-consuming and prone to errors.",
-            impact: "Reduced reporting time by 80% and provided real-time insights for strategic decision-making.",
+            title: "Email-to-Log Automation (Zapier)",
+            solution: "Designed and deployed a serverless workflow using Zapier to automatically parse and log structured data (Name, Date, Time-in/out) from specific inbound emails into a centralized Google Sheet.",
+            tech: ["Zapier", "Workflow Automation", "Spreadsheets"],
+            problem: "Critical time-in/out log data was being submitted via email, requiring slow, error-prone manual transfer by an HR representative.",
+            impact: "Eliminated manual data entry entirely, ensuring real-time logging with 100% accuracy. This provided instant, reliable data for reporting, saving HR personnel approximately 4 hours per week.",
             link: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true", // Placeholder link - Update this with your live dashboard URL
-            image: ""
+            image: "https://github.com/saqib-priv/portfolio-assets/blob/main/Workflow%20for%20mistaps.png?raw=true"
         },
         {
             title: "Work Schedule Automation",
