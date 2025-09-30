@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // A. Hero Particle Effect Initialization
+    // A. Hero Particle Effect Initialization (Requires particles.js external script)
     particlesJS('particles-js', {
         "particles": {
             "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // D. GSAP Hero Entrance Animation
+    // D. GSAP Hero Entrance Animation (Requires GSAP external script)
     gsap.to('.hero-title', { opacity: 1, y: 0, duration: 1.5, delay: 0.5, ease: "power2.out" });
     gsap.to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.5, delay: 1, ease: "power2.out" });
     gsap.to('#view-work-btn', { opacity: 1, y: 0, duration: 1.5, delay: 1.5, ease: "power2.out" });
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // F. ScrollReveal Initialization
+    // F. ScrollReveal Initialization (Requires ScrollReveal external script)
     function initializeScrollReveal() {
         ScrollReveal().reveal('.reveal', {
             delay: 200,
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // G. Project Data (Local Data from your code)
+    // G. Project Data (Local Data from your code - This is the static fallback)
     const projectsData = [
         {
             title: "HR Data Dashboard",
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const descriptionText = project.solution || 'No description provided.';
             const shortDescription = descriptionText.length > 90 
-                ? descriptionText.substring(0, 87) + '...' // Increased length for better visibility
+                ? descriptionText.substring(0, 87) + '...' 
                 : descriptionText;
             
             card.innerHTML = `
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // J. GitHub Pages Contact Form Handling (using Formspree)
+    // J. GitHub Pages Contact Form Handling (using Formspree - relies on the action URL in index.html)
     const form = document.getElementById("contactForm");
     const statusEl = document.getElementById("status");
 
@@ -230,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-enable the button
             submitButton.disabled = false;
             submitButton.textContent = "Send Message & Get a Project Idea";
-            // NOTE: AI project idea feature removed as it requires server-side logic
         }
     });
 
