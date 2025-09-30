@@ -15,8 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    
-    </head>
+</head>
 <body>
     <header class="top-header">
         <div class="header-container">
@@ -87,14 +86,18 @@
 
         <section id="contact" class="section">
             <h2 class="section-title reveal">Contact</h2>
-            <form id="contactForm" class="reveal" action="https://formspree.io/f/YOUR_FORMSPREE_CODE" method="POST">
+            <form id="contactForm" class="reveal" action="https://formspree.io/f/myznwpqq" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message & Get a Project Idea</button>
             </form>
             <div id="status"></div>
-            </section>
+            <div id="ai-response-container">
+                <h4>AI-Generated Project Idea:</h4>
+                <p id="ai-response"></p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -124,6 +127,7 @@
             <a id="modalLink" href="#" target="_blank" class="btn">View Project</a>
         </div>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
