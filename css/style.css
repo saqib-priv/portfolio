@@ -1,11 +1,10 @@
-/* RESET */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* GENERAL STYLES */
 :root {
     --primary-color: #007acc;
     --secondary-color: #004d7d;
@@ -143,7 +142,6 @@ body {
     z-index: 1010;
 }
 
-/* HERO SECTION */
 .hero {
     position: relative;
     height: 100vh;
@@ -163,7 +161,6 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
-    /* 🚨 CRITICAL FIX: Allows clicks to pass through to the content 🚨 */
     pointer-events: none;
 }
 
@@ -205,7 +202,7 @@ body {
     transform: translateY(20px);
 }
 
-/* ABOUT SECTION */
+
 .skills {
     margin-top: 60px;
     text-align: center;
@@ -313,7 +310,6 @@ body {
     font-weight: 600;
 }
 
-/* CONTACT SECTION */
 #contact {
     background-color: var(--background-dark);
     color: var(--light-text);
@@ -406,7 +402,6 @@ footer {
     color: var(--primary-color);
 }
 
-/* MODAL STYLES */
 .modal {
     display: none;
     position: fixed;
@@ -465,7 +460,6 @@ footer {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* MEDIA QUERIES */
 @media (max-width: 768px) {
     .section {
         padding: 50px 15px;
@@ -483,7 +477,6 @@ footer {
         font-size: 1.1em;
     }
 
-    /* Mobile Nav */
     .nav-links {
         display: none;
         flex-direction: column;
